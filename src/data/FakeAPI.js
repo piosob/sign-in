@@ -1,4 +1,4 @@
-const data = {
+const FakeAPI = {
   login: data => {
     const { username, password } = data;
     return new Promise((resolve, reject) => {
@@ -16,4 +16,4 @@ const data = {
   }
 };
 
-export default data;
+export default FakeAPI;

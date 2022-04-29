@@ -4,7 +4,7 @@ import '../style/SignInForm.scss';
 import './validation'
 import { validation } from './validation';
 
-export const SignInForm = () => {
+export const SignInForm = ({ generalError, onSubmit }) => {
   const [values, setValues] = useState({
     username: '',
     password: '',
@@ -23,7 +23,8 @@ export const SignInForm = () => {
     e.preventDefault();
     const errorMessages = validation(values);
     setErrorMessage(errorMessages)
-    console.log(errorMessages);
+    const { username, password } = values;
+    if (!errorMessages) { onSubmit(username, password) }
   }
 
   return (
@@ -41,13 +42,13 @@ export const SignInForm = () => {
       <Input
         name='password'
         placeholder='enter password'
-        label='Passoword: '
+        label='Password: '
         value={values.password}
         errorMessage={errorMessage?.password}
         onChange={handleChange}
       />
       <button type='submit'>Sign in!</button>
-      <p className='global-error'>Global error in Form!</p>
+      {generalError ? <p className='global-error'>{generalError}</p> : null}
 
     </form>
   );

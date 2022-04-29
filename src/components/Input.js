@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../style/Input.scss';
 
 export const Input = ({ name, placeholder, label, value, errorMessage, onChange }) => {
