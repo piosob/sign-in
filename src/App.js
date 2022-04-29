@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
+import { SignIn } from './components/SignIn';
 
-import './style/App.css';
+import './style/App.scss';
 function App() {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(null);
 
   return (
     <div className="App">
-      test
+      {isUserLoggedIn ? 'welcome' : <SignIn />}
     </div>
   );
 }
