@@ -15,7 +15,7 @@ export const SignInForm = ({ generalError, onSubmit }) => {
     const { name, value } = e.target;
     setValues(prevState => ({
       ...prevState,
-      [name]: value,
+      [name]: value.toLowerCase(),
     }))
   }
 
